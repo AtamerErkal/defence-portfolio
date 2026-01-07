@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atamer Erkal | Defence AI Specialist</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --dark: #0a1628;
+            --blue: #1e3a5f;
+            --accent: #2d5a8c;
+            --gold: #d4af37;
+            --light: #e8e8e8;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0f2744 100%);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .hero {
+            margin-top: 80px;
+            padding: 120px 40px 80px;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid var(--gold);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            margin: 0 auto 40px;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+
+        .rank-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 2px solid var(--gold);
+            padding: 8px 25px;
+            border-radius: 30px;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+
+        .title {
+            font-size: 1.6em;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        .certs {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cert {
+            background: rgba(30, 58, 95, 0.6);
+            border: 2px solid var(--accent);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .cert:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8em;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .stat {
+            background: rgba(30, 58, 95, 0.4);
+            border: 2px solid var(--accent);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .stat-num {
+            font-size: 3em;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gold);
+        }
+
+        .timeline-item {
+            background: rgba(30, 58, 95, 0.3);
+            border: 2px solid var(--accent);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -65px;
+            top: 35px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 4px solid var(--dark);
+        }
+
+        .job-title {
+            color: var(--gold);
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .period {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .company {
+            color: #c0c0c0;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .achievements {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .achievements strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .achievements li {
+            margin-bottom: 8px;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(30, 58, 95, 0.4);
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-8px);
+        }
+
+        .skill-card h3 {
+            color: var(--gold);
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(45, 90, 140, 0.5);
+            border: 1px solid var(--accent);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .project {
+            background: rgba(30, 58, 95, 0.4);
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+        }
+
+        .project-header {
+            background: var(--blue);
+            padding: 50px;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .project-body {
+            padding: 30px;
+        }
+
+        .project-badge {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            color: var(--gold);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-link {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .contact {
+            background: var(--blue);
+            border-top: 2px solid var(--gold);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            background: rgba(30, 58, 95, 0.5);
+            border: 2px solid var(--accent);
+            padding: 20px 35px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .contact-item strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background: var(--dark);
+            padding: 30px;
+            text-align: center;
+            color: rgba(232, 232, 232, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ATAMER ERKAL</div>
+            <ul class="nav-links">
+                <li><a href="#experience">Operations</a></li>
+                <li><a href="#skills">Capabilities</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Training</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="https://i.imgur.com/placeholder.jpg" alt="Atamer Erkal" class="profile-photo">
+        <div class="rank-badge">NATO OPERATIONS PLANNING OFFICER (R)</div>
+        <h1>ATAMER ERKAL</h1>
+        <div class="title">Defence AI & Operations Planning Specialist</div>
+        <p class="tagline">NATO-certified operations planning officer with 15+ years of expertise in defence systems, weapon systems integration, and AI-powered decision support for military command and control.</p>
+        <div class="certs">
+            <div class="cert">🎖️ NATO COPD Certified</div>
+            <div class="cert">🛡️ JTF HQ Qualified</div>
+            <div class="cert">⚙️ Defence AI Expert</div>
+            <div class="cert">🎯 MLOps Engineer</div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num">15+</div>
+                <div>Years Defence Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">15+</div>
+                <div>NATO Member Nations</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">10+</div>
+                <div>Weapon Systems</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">3</div>
+                <div>Military Awards</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num">200+</div>
+                <div>Data Scientists Trained</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="experience" class="container">
+        <div class="section-header">
+            <h2>Operational Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="job-title">Director of Data Science Program & Data Scientist</div>
+                <div class="period">04/2020 - Present</div>
+                <div class="company">Clarusway IT School, USA & Germany (Freelance since 06/2022)</div>
+                <p>Led international data science projects for complex systems analysis using Agile/Scrum methodologies and Jira. Managed interdisciplinary teams to develop practical analysis and solution concepts directly transferable to defence projects. Stakeholder management and scaling of digital initiatives with measurable success.</p>
+                <div class="achievements">
+                    <strong>🏆 Key Achievements:</strong>
+                    <ul>
+                        <li>Program awarded "Best Data Science and Analytics Bootcamp" 2021/2022 by two independent institutes</li>
+                        <li>Achieved 90% placement rate of graduates in data science positions</li>
+                        <li>120% community growth through strategic program development</li>
+                        <li>Trained 200+ data scientists with production-ready skills</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Joint Fires Planner (SME) / NATO Planning Officer</div>
+                <div class="period">07/2014 - 02/2017</div>
+                <div class="company">NATO ARRC Corps HQ, Innsworth/UK & Turkish General Staff HQ, Ankara/Turkey</div>
+                <p>Planning and coordination of joint and combined fire support and artillery operations in multinational NATO structures. Technical participation in integration of maritime and land-based weapon systems within NATO Integrated Targeting and Joint Fires concepts. Development and coordination of operational concepts, technical requirements, and engagement procedures according to NATO doctrine.</p>
+                <div class="achievements">
+                    <strong>🏆 Key Achievements:</strong>
+                    <ul>
+                        <li>Successfully participated in NATO JTF HQ Certification with multiple complex projects</li>
+                        <li>Awarded for "outstanding analytical capabilities" (reference letter from Major Ekip Kalır)</li>
+                        <li>Seamlessly integrated into high-performance multinational team from day one</li>
+                        <li>Collaborated with 15+ NATO member nations on safety-critical operations</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="job-title">Executive Officer (XO) / Operations & Weapons Officer</div>
+                <div class="period">09/2002 - 06/2014</div>
+                <div class="company">Frigates (Blohm+Voss MEKO200TN) & Fast Attack Craft (Lürssen Gepard/FPB-62)</div>
+                <p>Operational planning and execution of artillery exercises, weapon tests, and maritime operations. Responsibility for system availability, operational readiness, and technical coordination of complex weapon and sensor systems. Leadership and management of interdisciplinary technical teams (up to 20 personnel). Participation in multinational UN and NATO operations.</p>
+                <div class="achievements">
+                    <strong>⚙️ Systems Managed:</strong>
+                    <ul>
+                        <li>Naval Artillery: 76/62mm OTO Melara, 127mm Mk-45</li>
+                        <li>Air Defence & CIWS: PHALANX, Sea Zenith 25mm, OTO Breda</li>
+                        <li>Fire Control & Sensors: STIR, WM-25, TMX, Harpoon</li>
+                    </ul>
+                    <strong style="margin-top: 15px; display: block;">🏆 Awards:</strong>
+                    <ul>
+                        <li>Certificate of Honor for Leadership and Management</li>
+                        <li>Naval Administration & Logistics Award</li>
+                        <li>Essay Competition Success Award</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <div class="section-header">
+            <h2>Capabilities</h2>
+        </div>
+        <div class="skills">
+            <div class="skill-card">
+                <h3>🛡️ Defence Operations</h3>
+                <div class="tags">
+                    <span class="tag">NATO Operations</span>
+                    <span class="tag">Joint Fires Planning</span>
+                    <span class="tag">Threat Assessment</span>
+                    <span class="tag">C2 Systems</span>
+                    <span class="tag">Operational Analysis</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>🤖 Defence AI & MLOps</h3>
+                <div class="tags">
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">XGBoost</span>
+                    <span class="tag">SHAP/LIME</span>
+                    <span class="tag">MLflow</span>
+                    <span class="tag">Azure ML</span>
+                    <span class="tag">Docker</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>📋 Project Management</h3>
+                <div class="tags">
+                    <span class="tag">NATO COPD</span>
+                    <span class="tag">Agile/Scrum</span>
+                    <span class="tag">Jira Certified</span>
+                    <span class="tag">Multinational Teams</span>
+                    <span class="tag">Stakeholder Management</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>⚙️ Weapon Systems</h3>
+                <div class="tags">
+                    <span class="tag">Naval Artillery</span>
+                    <span class="tag">Air Defence</span>
+                    <span class="tag">Fire Control Systems</span>
+                    <span class="tag">Sensor Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <div class="section-header">
+            <h2>Defence AI Projects</h2>
+        </div>
+        <div class="projects">
+            <div class="project">
+                <div class="project-header">🛡️</div>
+                <div class="project-body">
+                    <div class="project-badge">Defence AI</div>
+                    <div class="project-title">VANGUARD AI</div>
+                    <p>Air track classification system for real-time threat assessment. XGBoost-based tactical classification (Hostile/Friendly/Civilian) with 3D visualization and NATO C2 compatibility. Designed for integration with command and control infrastructure.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AtamerErkal/VANGUARD_Project" class="project-link">GitHub →</a>
+                        <a href="https://xai-dashboard.streamlit.app/" class="project-link">Live Demo →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">🔍</div>
+                <div class="project-body">
+                    <div class="project-badge">Explainable AI</div>
+                    <div class="project-title">XAI Dashboard</div>
+                    <p>Model interpretability platform using SHAP and LIME for transparent AI decision-making in high-stakes defence and healthcare applications. Provides feature importance and performance metrics to build operational trust.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AtamerErkal/explainable_ai_dashboard" class="project-link">GitHub →</a>
+                        <a href="https://xai-dashboard.streamlit.app/" class="project-link">Live Demo →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <div class="section-header">
+            <h2>Training & Qualifications</h2>
+        </div>
+        <div class="skills">
+            <div class="skill-card">
+                <h3>🎖️ NATO COPD</h3>
+                <div class="company">NATO School Oberammergau, Germany (2015)</div>
+                <p style="margin-top: 15px; line-height: 1.8;">Comprehensive Operations Planning Course - NATO certified for OF-3 to OF-5 level operational planning officers. Intensive training in multinational Joint Operations Planning, NATO OPP System, Operational Art, and Course of Action Development.</p>
+            </div>
+            <div class="skill-card">
+                <h3>🎓 MSc Organizational Management & Leadership</h3>
+                <div class="company">National Defence University, Istanbul, Turkey (2012)</div>
+                <p style="margin-top: 15px; line-height: 1.8;">Leadership, strategic planning, and organizational management in defence contexts. Grade: 87.00/100</p>
+            </div>
+            <div class="skill-card">
+                <h3>⚙️ BEng Electronics Engineering</h3>
+                <div class="company">National Defence University, Istanbul, Turkey (2002)</div>
+                <p style="margin-top: 15px; line-height: 1.8;"><strong style="color: var(--gold);">Recognized as Engineer in Germany</strong> - Naval Officer training included. Foundation in electronics, systems engineering, and military operations.</p>
+            </div>
+            <div class="skill-card">
+                <h3>📊 Technical Certifications</h3>
+                <div class="tags" style="margin-top: 15px;">
+                    <span class="tag">Agile with Jira (Atlassian)</span>
+                    <span class="tag">Power BI (Microsoft)</span>
+                    <span class="tag">Machine Learning (Azure)</span>
+                    <span class="tag">AI on Azure (Microsoft)</span>
+                    <span class="tag">Google PM Certificate (In Progress)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>Open to opportunities in Defence AI, Operations Planning, and MLOps Engineering</p>
+        <div class="contact-items">
+            <div class="contact-item">
+                <strong>Status</strong>
+                German Work Permit
+            </div>
+            <div class="contact-item">
+                <strong>Mobility</strong>
+                30-40% International Travel
+            </div>
+            <div class="contact-item">
+                <strong>Languages</strong>
+                Turkish (Native) | English (Fluent) | German (B2)
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Atamer Erkal | Defence AI & Operations Planning Specialist</p>
+    </footer>
+</body>
+</html>

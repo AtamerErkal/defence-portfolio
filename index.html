@@ -74,12 +74,13 @@
         .profile-photo {
             width: 220px;
             height: 220px;
-            border-radius: 50%;
+            border-radius: 15px;
             border: 6px solid var(--gold);
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
             margin: 0 auto 40px;
+            display: block;
             object-fit: cover;
-            object-position: center 25%;
+            object-position: center center;
         }
 
         .rank-badge {
@@ -448,13 +449,14 @@
                 <li><a href="#skills">Capabilities</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#education">Training</a></li>
+                <li><a href="#interests">Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
-        <img src="images/bildjpg.jpg" alt="Atamer Erkal" class="profile-photo">
+        <img src="https://i.imgur.com/placeholder.jpg" alt="Atamer Erkal" class="profile-photo">
         <div class="rank-badge">NATO OPERATIONS PLANNING OFFICER (R)</div>
         <h1>ATAMER ERKAL</h1>
         <div class="title">Defence AI & Operations Planning Specialist</div>
@@ -614,7 +616,7 @@
                     <p>Air track classification system for real-time threat assessment. XGBoost-based tactical classification (Hostile/Friendly/Civilian) with 3D visualization and NATO C2 compatibility. Designed for integration with command and control infrastructure.</p>
                     <div class="project-links">
                         <a href="https://github.com/AtamerErkal/VANGUARD_Project" class="project-link">GitHub →</a>
-                        <a href="https://vanguard-ai.streamlit.app/" class="project-link">Live Demo →</a>
+                        <a href="https://xai-dashboard.streamlit.app/" class="project-link">Live Demo →</a>
                     </div>
                 </div>
             </div>
@@ -667,21 +669,57 @@
         </div>
     </section>
 
+    <section id="interests" class="container">
+        <div class="section-header">
+            <h2>Personal Interests</h2>
+        </div>
+        <div class="skills">
+            <div class="skill-card">
+                <h3>🏃 Athletics</h3>
+                <p style="margin-top: 15px; line-height: 1.8;">Regular training and participation in athletic activities to maintain physical fitness and discipline.</p>
+            </div>
+            <div class="skill-card">
+                <h3>📚 Scientific Literature</h3>
+                <p style="margin-top: 15px; line-height: 1.8;">Reading dissertations and academic papers on defence technologies, military systems, and strategic studies.</p>
+            </div>
+            <div class="skill-card">
+                <h3>🔬 Technology Trends</h3>
+                <p style="margin-top: 15px; line-height: 1.8;">Following emerging technologies and innovations in the defence sector, including AI applications and autonomous systems.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>Open to opportunities in Defence AI, Operations Planning, and MLOps Engineering</p>
+        <h2>Get In Touch</h2>
+        <p>I'm currently open to new opportunities in Defence AI, Operations Planning, and MLOps Engineering. Whether you have a question or just want to connect, feel free to reach out!</p>
         <div class="contact-items">
             <div class="contact-item">
-                <strong>Status</strong>
-                German Work Permit
+                <strong>📧 Email</strong>
+                <a href="mailto:atamererkal.eu@gmail.com" style="color: var(--light); text-decoration: none;">atamererkal.eu@gmail.com</a>
             </div>
             <div class="contact-item">
-                <strong>Mobility</strong>
-                30-40% International Travel
+                <strong>💼 LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/atamererkal" style="color: var(--light); text-decoration: none;">linkedin.com/in/atamererkal</a>
             </div>
             <div class="contact-item">
-                <strong>Languages</strong>
-                Turkish (Native) | English (Fluent) | German (B2)
+                <strong>💻 GitHub</strong>
+                <a href="https://github.com/AtamerErkal" style="color: var(--light); text-decoration: none;">github.com/AtamerErkal</a>
+            </div>
+        </div>
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(212, 175, 55, 0.3);">
+            <div class="contact-items">
+                <div class="contact-item">
+                    <strong>Work Authorization</strong>
+                    German Work Permit
+                </div>
+                <div class="contact-item">
+                    <strong>Mobility</strong>
+                    30-40% International Travel
+                </div>
+                <div class="contact-item">
+                    <strong>Languages</strong>
+                    Turkish (Native) | English (Fluent) | German (B2)
+                </div>
             </div>
         </div>
     </section>
